@@ -1,6 +1,16 @@
 {
-    "token": "BOT_TOKEN",
     "prefix": "!",
-    "logChannel": "LOG_KANAL_ID",
-    "owner": "OWNER_ID"
+
+    "owners": [
+        "1003708560728920165",
+        "1339146423433953300"
+    ],
+
+    "guildId": "1522196146850631741",
+
+    "logChannel": "1534546134922559548",
+
+    "ticketSupportRole": "1531729902594687017",
+
+    "ticketCategory": "1531712086680408144"
 }
