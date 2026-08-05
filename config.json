@@ -1,1 +1,6 @@
-
+{
+    "token": "BOT_TOKEN",
+    "prefix": "!",
+    "logChannel": "LOG_KANAL_ID",
+    "owner": "OWNER_ID"
+}
