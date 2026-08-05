@@ -1,50 +1,60 @@
-module.exports=
-async(interaction)=>{
+const {
+PermissionsBitField
+}=require("discord.js");
+
+
+module.exports = async interaction=>{
 
 
 if(
-interaction.customId==="stats"
+interaction.customId==="ticket_close"
 ){
 
-interaction.reply({
 
-ephemeral:true,
+if(
+!interaction.member.roles.cache.has(
+require("../config.json").ticketSupportRole
+)
+&&
+!interaction.member.permissions.has(
+PermissionsBitField.Flags.Administrator
+)
+){
+
+return interaction.reply({
 
 content:
-`
-📊 AEGİS NW İSTATİSTİK
+"❌ Sadece destek ekibi ticket kapatabilir.",
 
-👥 Üye:
-${interaction.guild.memberCount}
+ephemeral:true
 
-🤖 Bot:
-Aktif
+});
 
-`
+}
+
+
+
+await interaction.reply({
+
+content:
+"🔒 Ticket 5 saniye içinde kapatılacak.",
+
+ephemeral:true
 
 });
 
 
-}
 
+setTimeout(()=>{
 
+interaction.channel.delete();
 
-if(
-interaction.customId==="ticket"
-){
-
-interaction.reply({
-
-ephemeral:true,
-
-content:
-"🎫 Ticket paneli hazırlanıyor."
-
-});
-
-
-}
+},5000);
 
 
 
 }
+
+
+
+};
